@@ -35,7 +35,7 @@ pipeline{
             }
         }
         
-        stage('Docker Deploy then Clean'){
+        stage('Docker Deploy '){
             steps{
                 sh " cd  "
                 sh " cd stage-1"
@@ -43,6 +43,14 @@ pipeline{
                 sh "ansible-playbook site.yml -i inventory --private-key ansible.key -u yasser -e ansible_become_password=root "
             }
         }
+        stage("clean workdirectory")
+        {
+                steps{
+                cleanWs()
+            }
+        }
+       
+
     }
 }
 
