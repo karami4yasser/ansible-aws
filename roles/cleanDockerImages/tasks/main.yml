@@ -1,2 +1,11 @@
+- name: Ensure docker deamon is stopped
+  service:
+    name: docker
+    state: stopped
+
 - name: Clean and Remove docker images
-  shell: service docker stop | rm -rf /var/lib/docker | service docker start
+  shell:  rm -rf /var/lib/docker
+- name: Ensure docker deamon is running
+  service:
+    name: docker
+    state: started

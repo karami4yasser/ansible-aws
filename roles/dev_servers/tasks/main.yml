@@ -36,6 +36,20 @@
 - name: Install Docker Module for Python
   pip:
     name: docker
+- name: Ensure docker deamon is stopped
+  service:
+    name: docker
+    state: stopped
+
+- name: Clean and Remove docker images
+  shell:  rm -rf /var/lib/docker
+
+
+- name: Ensure docker deamon is running
+  service:
+    name: docker
+    state: started
+
 
 - name: Log into private registry and force re-authorization
   docker_login:
@@ -43,8 +57,5 @@
     password: pieldetoro
 
 
-- name: Clean and Remove docker images
-  shell: service docker stop | rm -rf /var/lib/docker | service docker start
-
 - name:  Start the container
-  shell:  docker container  run -itd --name hariaapp -p 8080:8080 karamiyasser/hariapp
+  shell:  docker container  run -itd --name hariaapp -p 8080:8080 karamiyasser/hariapp:ceebf4b
