@@ -19,7 +19,9 @@ pipeline{
         }
         stage('Docker Build'){
             steps{
-                sh "docker build . -t karamiyasser/hariapp "
+                sh "docker build . -t $JOB_NAME:v1.$BUILD_ID "
+                sh "docker image tag $JOB_NAME:v1.$BUILD_ID karamiyasser/$JOB_NAME:v1.$BUILD_ID "
+                sh "docker image tag $JOB_NAME:v1.$BUILD_ID karamiyasser/$JOB_NAME:latest "
             }
         }
         stage('DockerHub Push'){
@@ -28,7 +30,8 @@ pipeline{
     sh "docker login -u karamiyasser -p ${dockerpwd}"
 }
                 
-                sh "docker push karamiyasser/hariapp "
+                sh "docker push karamiyasser/$JOB_NAME:v1.$BUILD_ID "
+                sh "docker push karamiyasser/$JOB_NAME:latest "
             }
         }
         
