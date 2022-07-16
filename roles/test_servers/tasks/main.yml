@@ -1,0 +1,7 @@
+- name: install packages on test_servers
+  apt:
+   name:
+    - apache2
+   state: latest
+
+

@@ -1,0 +1,26 @@
+---
+ 
+ - hosts: all
+   become: true
+   pre_tasks:
+ 
+   - name: update repository index (CentOS)
+     tags: always
+     dnf:
+       update_cache: yes
+     changed_when: false
+     when: ansible_distribution == "CentOS"
+
+ 
+
+
+ - hosts: dev_servers
+   become: true
+   roles:
+     - dev_servers
+ 
+ - hosts: test_servers
+   become: true
+   roles:
+     - test_servers
+ 

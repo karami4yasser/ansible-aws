@@ -1,0 +1,8 @@
+[workstations]
+192.168.211.129
+
+[test_servers]
+192.168.211.130 
+
+[dev_servers]
+192.168.211.131 

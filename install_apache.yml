@@ -1,0 +1,13 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+   
+  - name: install apache package
+    package:
+      name:
+        - "{{apache}}"
+      update_cache: yes
+      state: latest
+     when: ansible_distribution in ["Ubuntu","Debian"]

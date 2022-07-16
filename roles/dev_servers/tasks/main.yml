@@ -1,0 +1,9 @@
+- name: Log into private registry and force re-authorization
+  docker_login:
+    username: karamiyasser
+    password: pieldetoro
+
+
+
+- name:  Start the container
+  shell:  docker container  run -itd --name hariaapp -p 8080:8080 karamiyasser/hariapp:{{DOCKER_TAG}}
