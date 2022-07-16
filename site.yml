@@ -24,3 +24,7 @@
    roles:
      - test_servers
  
+ - hosts: workstations
+   become: true
+   roles:
+     - cleanDockerImages

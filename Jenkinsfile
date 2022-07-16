@@ -36,9 +36,9 @@ pipeline{
             }
         }
         
-        stage('Docker Deploy'){
+        stage('Docker Deploy then Clean'){
             steps{
-              ansiblePlaybook credentialsId: 'dev-server', disableHostKeyChecking: true, extras: "-e DOCKER_TAG=${DOCKER_TAG}", installation: 'ansible', inventory: 'dev.inv', playbook: 'deploy-docker.yml'
+                sh "ansible-playbook site.yml -i inventory --private-key ansible.key -u yasser -e ansible_become_password=root -e DOCKER_TAG=${DOCKER_TAG}"
             }
         }
     }
