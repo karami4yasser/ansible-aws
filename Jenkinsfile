@@ -26,7 +26,7 @@ pipeline{
         }
         stage('DockerHub Push'){
             steps{
-           withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerpwd')]) {
+           withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerpwd')]) {
     sh "docker login -u karamiyasser -p ${dockerpwd}"
 }
                 
@@ -40,7 +40,7 @@ pipeline{
                 sh " cd  "
                 sh " cd stage-1"
 
-                sh "ansible-playbook site.yml -i inventory --private-key ansible.key -u yasser -e ansible_become_password=root "
+                sh "ansible-playbook site.yml  "
             }
         }
         stage("clean workdirectory")
