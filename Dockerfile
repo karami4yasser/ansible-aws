@@ -1,3 +1,3 @@
-FROM tomcat
-# Take the war and copy to webapps of tomcat
-COPY target/*.war /usr/local/tomcat/webapps/dockeransible.war
+FROM openjdk:8-jdk-alpine
+COPY target/*.jar docker.jar
+ENTRYPOINT ["java","-jar","docker.jar"]
