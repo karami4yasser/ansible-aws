@@ -58,4 +58,4 @@
 
 
 - name:  Start the container
-  shell:  docker container  run -itd --name hariaapp -p 8080:80 karamiyasser/stage-1
+  shell:  docker container  run -itd --name hariaapp -p 8080:8080 karamiyasser/stage-1
