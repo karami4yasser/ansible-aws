@@ -1,8 +1,8 @@
 [workstations]
-ec2-3-90-201-220.compute-1.amazonaws.com
+ec2-54-174-241-81.compute-1.amazonaws.com
 
 [test_servers]
-ec2-3-93-60-144.compute-1.amazonaws.com
+ec2-34-230-36-17.compute-1.amazonaws.com
 
 [dev_servers]
-ec2-34-228-160-181.compute-1.amazonaws.com
+ec2-3-91-32-35.compute-1.amazonaws.com
