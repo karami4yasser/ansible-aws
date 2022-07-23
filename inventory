@@ -3,4 +3,4 @@ ec2-52-201-245-243.compute-1.amazonaws.com
 [test_servers]
 ec2-34-235-137-66.compute-1.amazonaws.com
 [dev_servers]
-ec2-3-90-239-170.compute-1.amazonaws.com
+3.90.239.170
