@@ -6,8 +6,8 @@ pipeline{
     stages{
         stage('SCM'){
             steps{
-                git credentialsId: 'github',
-                url: 'https://github.com/javahometech/dockeransiblejenkins'
+                
+               git branch: 'main', credentialsId: 'git', url: 'git@github.com:karami4yasser/stage-1.git'
 
             }
         }
@@ -37,10 +37,9 @@ pipeline{
         
         stage('Docker Deploy '){
             steps{
-                sh " cd  "
-                sh " cd stage-1"
-
-                sh "ansible-playbook site.yml  "
+             
+                  ansiblePlaybook credentialsId: 'ec2', inventory: 'inventory', playbook: 'site.yml'
+               //sh "ansible-playbook site.yml -i inventory --private-key ec2.pem -u ubuntu -e ansible_become_password="
             }
         }
         stage("clean workdirectory")
@@ -54,3 +53,4 @@ pipeline{
     }
 }
 
+ 
