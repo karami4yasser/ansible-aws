@@ -1,0 +1,17 @@
+---
+ 
+ - hosts: all
+   become: true
+   pre_tasks:
+ 
+   - name: update repository index (CentOS)
+     tags: always
+     package:
+       update_cache: yes
+     changed_when: false
+    tasks: install ansible
+    package:
+      name: 
+        - ansible
+      update_cache: yes
+      state: latest

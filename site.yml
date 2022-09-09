@@ -6,10 +6,10 @@
  
    - name: update repository index (CentOS)
      tags: always
-     dnf:
+     package:
        update_cache: yes
      changed_when: false
-     when: ansible_distribution == "CentOS"
+     
 
  
 
